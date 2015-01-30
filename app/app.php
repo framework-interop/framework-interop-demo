@@ -6,6 +6,7 @@ use Acme\CoreModule\CoreModule;
 use Acme\FrontendModule\FrontendModule;
 use DI\ContainerBuilder;
 use Interop\Framework\Application;
+use \Interop\Framework\Silex\SilexFrameworkModule;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -16,6 +17,7 @@ $container = $builder->build();
 $app = new Application(
     [
         CoreModule::class,
+        SilexFrameworkModule::class,
         FrontendModule::class,
         BlogModule::class,
         BackOfficeModule::class,

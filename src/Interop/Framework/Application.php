@@ -7,7 +7,6 @@ use Exception;
 use Interop\Container\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Mouf\Picotainer\Picotainer;
-use Stack\Builder;
 
 class Application
 {
@@ -20,11 +19,6 @@ class Application
      * @var Module[]
      */
     private $modules;
-
-    /**
-     * @var Module[]
-     */
-    private $routes;
 
     /**
      * 
@@ -71,11 +65,6 @@ class Application
         }
     }
 
-    public function setWebRoutes(array $routes)
-    {
-        $this->routes = $routes;
-    }
-
     public function runHttp()
     {
         $this->init();
@@ -94,9 +83,5 @@ class Application
 
         $response = $app->handle($request);
         $response->send();
-    }
-
-    public function runCli()
-    {
     }
 }
